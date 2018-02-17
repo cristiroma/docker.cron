@@ -17,7 +17,7 @@ $> sudo su
 
 
 ```
-docker run --rm -e "CRON_JOB_ECHO=* * * * * root . /usr/local/bin/cron-env.sh; echo \"Hello Dave ...\"" --name sisyphus_container cronimage
+docker run --rm -e "CRON_JOB_ECHO=* * * * * root echo 'Doing nothing every minute ...'" --name sisyphus_container cronimage
 ```
 
 After a couple of minutes, the console should look like this:
@@ -25,5 +25,9 @@ After a couple of minutes, the console should look like this:
 ```
 Installing job: CRON_JOB_ECHO in /etc/cron.d/CRON_JOB_ECHO
 1 CRON jobs installed ...
+Doing nothing every minute ...
+Doing nothing every minute ...
+Doing nothing every minute ...
+Doing nothing every minute ...
 ```
 
