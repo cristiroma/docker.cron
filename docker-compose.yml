@@ -1,0 +1,19 @@
+version: '2.0'
+
+services:
+
+  cron:
+    build: .
+    container_name: cc
+    volumes:
+      - cron-jobs:/etc/cron.d
+      - cron-scripts:/cron/
+    environment:
+      - CRON_ENV=TZ|PATH
+      - TZ=Europe/Bucharest
+      - CRON_JOB_ECHO_AAAA=* * * * * root . /usr/local/bin/cron-env.sh; echo "EVERY 1 MINUTE"
+      - CRON_JOB_ECHO_BBBB=*/2 * * * * root . /usr/local/bin/cron-env.sh; echo "EVERY 2 MINUTES"
+
+volumes:
+  cron-jobs:
+  cron-scripts:
