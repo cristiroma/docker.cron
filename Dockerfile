@@ -2,7 +2,7 @@ FROM debian:stretch-slim
 
 RUN set -ex \
 	&& apt-get update \
-	&& apt-get install -y --no-install-recommends cron
+	&& apt-get install -y --no-install-recommends cron curl wget
 
 RUN mkfifo -m 0666 /var/log/cron.log
 
